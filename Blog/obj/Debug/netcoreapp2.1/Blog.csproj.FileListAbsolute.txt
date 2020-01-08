@@ -25,4 +25,6 @@ C:\Users\NickTsai\Documents\GitHub\Blog\Blog\obj\Debug\netcoreapp2.1\Blog.Views.
 C:\Users\NickTsai\Documents\GitHub\Blog\Blog\obj\Debug\netcoreapp2.1\Blog.csproj.CopyComplete
 C:\Users\NickTsai\Documents\GitHub\Blog\Blog\obj\Debug\netcoreapp2.1\Razor\Views\Home\Post.g.cshtml.cs
 C:\Users\NickTsai\Documents\GitHub\Blog\Blog\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
-C:\Users\NickTsai\Documents\GitHub\Blog\Blog\obj\Debug\netcoreapp2.1\Razor\Views\Home\Edit.g.cshtml.cs
+C:\Users\NickTsai\Documents\GitHub\Blog\Blog\obj\Debug\netcoreapp2.1\Razor\Views\Auth\Login.g.cshtml.cs
+C:\Users\NickTsai\Documents\GitHub\Blog\Blog\obj\Debug\netcoreapp2.1\Razor\Views\Panel\Index.g.cshtml.cs
+C:\Users\NickTsai\Documents\GitHub\Blog\Blog\obj\Debug\netcoreapp2.1\Razor\Views\Panel\Edit.g.cshtml.cs
