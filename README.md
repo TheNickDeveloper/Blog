@@ -1,2 +1,2 @@
 # Blog
- Self build Blog practice by using ASP.Net
+ Self build Blog practice by using ASP.Net Core
