@@ -7,6 +7,7 @@ namespace Blog.Data.Repository
     public interface IRepository
     {
         List<Post> GetAllPosts();
+        List<Post> GetAllPosts(string category);
         Post GetPost(int id);
         void RemovePost(int id);
         void UpdatePost(Post post);

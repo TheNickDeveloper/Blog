@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Blog.Data;
+using Blog.Data.FileManager;
 using Blog.Data.Repository;
 using Blog.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -13,15 +14,20 @@ namespace Blog.Controllers
     public class HomeController : Controller
     {
         private readonly IRepository _repository;
+        private readonly IFileManager _fileManager;
 
-        public HomeController(IRepository repository)
+        public HomeController(IRepository repository, IFileManager fileManager)
         {
             _repository = repository;
+            _fileManager = fileManager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string category)
         {
-            var posts = _repository.GetAllPosts();
+            var posts = string.IsNullOrEmpty(category)
+                ? _repository.GetAllPosts() 
+                : _repository.GetAllPosts(category);
+
             return View(posts);
         }
 
@@ -31,5 +37,11 @@ namespace Blog.Controllers
             return View(post);
         }
 
+        [HttpGet("/Image/{image}")]
+        public IActionResult Image(string image)
+        {
+            var mime = image.Substring(image.LastIndexOf('.'));
+            return new FileStreamResult(_fileManager.ImageStream(image), $"image/{mime}");
+        }
     }
 }

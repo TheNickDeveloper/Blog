@@ -1,20 +1,26 @@
 ﻿@model IEnumerable<Post>
 
-@{ 
-
+@{
+    ViewBag.Title = "BLog Website";
+    ViewBag.Description = "This blog has everything";
+    ViewBag.Keywords = "blog programming travel photography";
 }
 
-<h2>Home Page</h2>
+<div class="main-img">
+    <span class="title">Amazing Blog Site</span>
+</div>
 
-<div>
-    <ul>
-        @foreach(var post in Model)
-        {
-        <li>
-            <a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
+<div class="container">
+    @foreach (var post in Model)
+    {
+        var image_path = $"/Image/{post.Image}";
+
+        <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
+            <img src="@image_path"/>
+            <span class="title">
                 @post.Title
-            </a>
-        </li>
-        }
-    </ul>
+            </span>
+        </a>
+    }
+
 </div>

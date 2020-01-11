@@ -26,6 +26,11 @@ namespace Blog.Data.Repository
             return _ctx.Posts.ToList();
         }
 
+        public List<Post> GetAllPosts(string category)
+        {
+            return _ctx.Posts.Where(x => x.Category.ToLower() == category.ToLower()).ToList();
+        }
+
         public void RemovePost(int id)
         {
             _ctx.Posts.Remove(GetPost(id));
