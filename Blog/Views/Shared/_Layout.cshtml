@@ -15,11 +15,11 @@
         <nav>
             <a asp-controller="Home" asp-action="Index">Home</a>
             <a asp-controller="Home" asp-action="Index" asp-route-category="Programming">Programming</a>
-
+            <a asp-controller="Home" asp-action="Index" asp-route-category="Travel">Travel</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-category="Photography">Photography</a>
 
             @if (User.Identity.IsAuthenticated)
             {
-                <a asp-controller="Panel" asp-action="Edit">Create Post</a>
                 <a asp-controller="Panel" asp-action="Index">Admin Panel</a>
                 <a asp-controller="Auth" asp-action="Logout">Sign Out</a>
             }

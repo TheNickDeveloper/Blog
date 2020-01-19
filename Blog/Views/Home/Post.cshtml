@@ -15,7 +15,66 @@
             <span class="title">@Model.Title</span>
         }
     </div>
+
     <div class="post-body">
         @Html.Raw(Model.Body)
     </div>
+
+    <div class="comment-section">
+        @{
+            CommentViewModel viewWindow = new CommentViewModel { PostId = Model.Id, MainCommentId = 0 };
+        }
+
+        @{
+            await Html.RenderPartialAsync("_MainComment", viewWindow);
+        }
+    </div>
+
+
+
+    <div>
+        @foreach (var comment in Model.MainComments)
+        {
+            <p>
+                @comment.UserName ==>  @comment.Message --- @comment.Created
+                 - 
+                <a onclick="javascript:showDiv(@comment.Id)">
+                    Reply
+                </a>
+                -
+                <a onclick="javascript:hideDiv(@comment.Id)">
+                    Cancle
+                </a>
+            </p>
+
+            <div style="margin-left:20px;">
+                @foreach (var subComment in comment.SubComments)
+                {
+                <p>
+                    @subComment.UserName --#>  @subComment.Message --- @subComment.Created
+                </p>
+                }
+            </div>
+
+            <div id= @comment.Id style="display:none">
+                @{
+                    await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = comment.Id });
+                }
+            </div>
+
+        }
+    </div>
 </div>
+
+<script language="javascript" type='text/javascript'>
+    function showDiv(id) {
+        if (document.getElementById(id)) {
+            document.getElementById(id).style.display = 'block';
+        }
+    }
+    function hideDiv(id) {
+        if (document.getElementById(id)) {
+            document.getElementById(id).style.display = 'none';
+        }
+    }
+</script>

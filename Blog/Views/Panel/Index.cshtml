@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Post>
 
-@{ 
+@{
 
 }
 
@@ -8,20 +8,24 @@
 
 <div>
     <ul>
-        @foreach(var post in Model)
+        @foreach (var post in Model)
         {
-        <li>
-            @post.Title
+            <li>
+                @post.Title
 
-            -
-            <a asp-controller="Panel" asp-action="Edit" asp-route-id="@post.Id">
-                Edit
-            </a>
-            -
-            <a asp-controller="Panel" asp-action="Remove" asp-route-id="@post.Id">
-                Remove
-            </a>
-        </li>
+                -
+                <a asp-controller="Panel" asp-action="Edit" asp-route-id="@post.Id">
+                    Edit
+                </a>
+                -
+                <a asp-controller="Panel" asp-action="Remove" asp-route-id="@post.Id">
+                    Remove
+                </a>
+            </li>
         }
     </ul>
+
+    <a asp-controller="Panel" asp-action="Edit">
+        Create New Post
+    </a>
 </div>

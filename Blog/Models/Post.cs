@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Blog.Models.Comments;
+using System;
+using System.Collections.Generic;
 
 namespace Blog.Models
 {
@@ -13,6 +15,8 @@ namespace Blog.Models
         public string Category { get; set; } = "";
 
         public DateTime Created { get; set; } = DateTime.Now;
+
+        public List<MainComment> MainComments { get; set; }
 
     }
 }
